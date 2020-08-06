@@ -22,6 +22,7 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 $(document).on('turbolinks:load', function() {
+    $('.sidenav').sidenav();
     $('.dropdown-trigger').dropdown();
 });
 
