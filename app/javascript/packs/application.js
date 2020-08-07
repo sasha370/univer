@@ -27,6 +27,6 @@ $(document).on('turbolinks:load', function() {
     // Выпадающий список в меню
     $('.dropdown-trigger').dropdown();
     // Автоскрытие flash сообщений
-    $('#fade-out-target').fadeOut(3000);
+    $('#fade-out-target').fadeOut(4000);
 });
 

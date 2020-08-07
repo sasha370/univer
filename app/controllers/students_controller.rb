@@ -2,22 +2,17 @@ class StudentsController < ApplicationController
   # перед каждым из перечисленных методов запустить метод set_student
   before_action :set_student, only: [:show, :edit, :update]
 
-
   def index
     @students = Student.all
   end
-
 
   def show
     # @student = Student.find(params[:id])
   end
 
-
-
   def new
     @student = Student.new
   end
-
 
   def create
     @student = Student.new(student_params )
@@ -31,7 +26,7 @@ class StudentsController < ApplicationController
   end
 
   # Экшен  отрисовыает шаблон для редактированияБ поэтому ему нужны параметры для отрисовки
-    def edit
+  def edit
     # @student = Student.find(params[:id])
   end
 
@@ -55,7 +50,7 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:name, :email)
+    params.require(:student).permit(:name, :email, :password)
   end
 
   def set_student

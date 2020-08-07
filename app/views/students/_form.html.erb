@@ -12,20 +12,32 @@
             <div class="row">
               <div class="input-field col s12">
                 <%= f.text_field :name, placeholder: "ФИО", autofocus: true %>
-                <%= f.label :name %>
+                <%= f.label :name, class: "active" %>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
                 <%= f.email_field :email, placeholder: "Email", autofocus: true %>
-                <%= f.label :email %>
+                <%= f.label :email, class: "active" %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <%= f.password_field :password, placeholder: "password", autofocus: true %>
+                <%= f.label :password , class: "active"%>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <%= f.password_field :password_confirmation, placeholder: "confirm your password", autofocus: true %>
+                <%= f.label :password_confirmation, class: "active" %>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
                 <!--                Если запись новая, то показываем Регистрацию, если нет то "Созранить"-->
-                <%= f.submit(@student.new_record? ? "Зарегистрироваться" : "Сохранить изменения", class: 'btn orange waves-effect waves-light right') %>
+                <%= f.button(@student.new_record? ? '<i class="material-icons right">arrow_forward </i> Зарегистрироваться'.html_safe : '<i class="material-icons right">create</i> Сохранить изменения '.html_safe, class: 'btn orange waves-effect waves-light right') %>
               </div>
             </div>
 

@@ -6,4 +6,6 @@ class Student < ApplicationRecord
             uniqueness: { case_sensitive: false },
             format: { with: VALID_EMAIL_REGEX }
 
+  # Добавляем секретку для хранения паролей
+  has_secure_password
 end

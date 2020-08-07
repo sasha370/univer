@@ -1,17 +1,19 @@
 <% flash.each do |key, message| %>
-
+  <% if key == 'notice' %>
   <div class="container">
     <div class="row sign-up-form">
       <div class="col s12 m12 l12">
 <!--        Обработчик событий ( автоскрытие) находится в aplication.js-->
         <div class="card-panel red lighten-2" id = "fade-out-target">
         <span class="white-text">
+
   <%= message %>
+
         </span>
         </div>
       </div>
     </div>
   </div>
 
-
+  <% end %>
 <% end %>
