@@ -2,6 +2,13 @@ class StudentsController < ApplicationController
   # перед каждым из перечисленных методов запустить метод set_student
   before_action :set_student, only: [:show, :edit, :update]
 
+  # crbgyenm проверку входа для данных экшенов
+  skip_before_action :require_user, only: [:new, :create]
+
+  # Проверить текущий пользователь - это хозяин карточки?
+  before_action :require_same_student, only: [:edit, :update]
+
+
   def index
     @students = Student.all
   end
@@ -57,5 +64,14 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
+  def require_same_student
+    # если текущий пользователь != данному студенту
+    if current_user != @student
+      # то уведомляем и пересылаем на собственную карточку
+      flash[:notice] = " Вы можете редактировать только свой профиль"
+      redirect_to student_path(current_user)
+    end
+
+  end
 
 end
