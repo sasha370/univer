@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   # Вьюха также будет находится в папке pages/about
   get "about", to: 'pages#about'
   get 'courses/new', to: 'courses#new'
+
+  # Прописываем все возможные пути для Students по CRUD, кроме удаления
+  resources :students, except: [:destroy]
 end

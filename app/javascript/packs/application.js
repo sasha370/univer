@@ -22,7 +22,11 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 $(document).on('turbolinks:load', function() {
+    // Меню для моюильников
     $('.sidenav').sidenav();
+    // Выпадающий список в меню
     $('.dropdown-trigger').dropdown();
+    // Автоскрытие flash сообщений
+    $('#fade-out-target').fadeOut(3000);
 });
 
