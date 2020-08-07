@@ -11,4 +11,13 @@ Rails.application.routes.draw do
 
   # Прописываем все возможные пути для Students по CRUD, кроме удаления
   resources :students, except: [:destroy]
+
+
+  # Прописываем пути для отдельных страниц. их контроллеров и экшены к ним
+  get 'login', to: 'logins#new'
+  post 'login', to: 'logins#create'
+  delete 'logout', to: 'logins#destroy'
+
+
+
 end
