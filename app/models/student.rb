@@ -8,4 +8,9 @@ class Student < ApplicationRecord
 
   # Добавляем секретку для хранения паролей
   has_secure_password
+
+  # Student имеют иного отношений с таблицей Студент,Курс
+  has_many :student_courses
+  # Студент имеет множество отношения с Курсами, черезтаблицу Student_course
+  has_many :courses, through: :student_courses
 end

@@ -1,24 +1,15 @@
-# README
+Приложение ТехУнивер.
+Написано с использованием оформления Materialize от Google 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Функционал: 
+- Регистрация\валидация\редактирование пользователя
+- Пользователь может записаться на любой курс
+- Пользователь может просматривать других студентов и их карточки
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Можно доделать: 
+- Добавить Админа, который может управлять курсами
+- добавить подтверждение черец почту
+- добавить рейтинг курсов
+ 
+ 
