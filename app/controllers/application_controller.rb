@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   # чтобы эти методы были видны другим контроллерам
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :is_admin?
 
   # Задаем для всех контроллеров ограничение: перед загрузкой проверить зарегистрирован ли пользователь
   before_action :require_user
@@ -24,4 +24,7 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+
+
 end

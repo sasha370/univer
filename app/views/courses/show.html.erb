@@ -5,9 +5,12 @@
     <div class="col s12 m6">
     <div class="card ">
       <div class="card-image course_back ">
-         <p class="card-title black-text"><strong> <%= @course.name %></strong></p>
-         <span class="card-title black-text"><%= @course.short_name %></span>
+        <div class="card-content">
+         <p class=" black-text"><%= @course.short_name %></p>
+         <p class=" black-text"><strong> <%= @course.name %></strong></p>
+        </div>
       </div>
+
       <div class="card-content">
         <p><%=@course.description %>></p>
       </div>

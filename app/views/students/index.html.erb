@@ -10,7 +10,7 @@
             <div class="card-content white-text">
               <span class="card-title">Студент: <%= student.name %></span>
               <span class="">Email: <%= student.email %></span>
-              <p> Список курсов: </p>
+              <p> Кол-во курсов: <%= student.courses.count %>  </p>
             </div>
             <div class="card-action">
               <%= link_to "Профиль", student_path(student) %>

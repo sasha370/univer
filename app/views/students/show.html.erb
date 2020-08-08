@@ -4,6 +4,7 @@
       <div class="card-content white-text">
         <span class="card-title">Студент: <%= @student.name %></span>
         <span class="">Email: <%= @student.email %></span>
+        <br />
         <p> Список курсов: </p>
         <% if @student.courses.empty? %>
           Пока нет курсов

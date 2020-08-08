@@ -2,6 +2,7 @@ class CoursesController < ApplicationController
   skip_before_action :require_user
 
 
+
   def index
     @courses = Course.all
   end
@@ -16,7 +17,14 @@ class CoursesController < ApplicationController
   end
 
   def create
-
+    @course = Course.new(permit_params)
+    if @course.save
+      flash[:notice] = "Rehc успешно создан"
+      redirect_to courses_path
+    else
+      flash[:notice] = "У вас есть ошибки, перепроверьте"
+      render :new
+    end
   end
 
   def edit
@@ -31,4 +39,10 @@ class CoursesController < ApplicationController
 
   end
 
+
+  private
+
+  def permit_params
+    params.require(:course).permit(:short_name, :name, :description)
+  end
 end

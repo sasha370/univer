@@ -9,6 +9,9 @@ module ApplicationHelper
     else
       link_to("Войти", login_path)
     end
-
   end
+
+
+
+
 end

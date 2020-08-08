@@ -9,6 +9,7 @@ class StudentsController < ApplicationController
   before_action :require_same_student, only: [:edit, :update]
 
 
+
   def index
     @students = Student.all
   end
