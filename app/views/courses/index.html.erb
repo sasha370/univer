@@ -8,23 +8,31 @@
         <div class="col s12 m6">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title"><%= course.short_name %>: <%= course.name %></span>
-              <p><%= course.description %></p>
+              <span class="card-title "><%= course.short_name %>: <%= course.name %></span>
+              <p class="truncate"><%= course.description %></p>
             </div>
+
             <div class="card-action">
               <!--            Показываем кнопку записаться только тем, кто зарегистрирован и еще не подписан на него-->
               <% if logged_in? && !(current_user.courses.include?(course)) %>
-<!--                В ссылке нам надо передать ID курса, методом POST-->
+                <!--                В ссылке нам надо передать ID курса, методом POST-->
                 <%= link_to "Записаться", course_enroll_path(course_id: course.id), method: :post %>
               <% end %>
 
-<!--TODO -->
-              <a href="#">Подробнее</a>
+
+              <%= link_to "Подробнее", course_path(course) %>
+
+              <!--            Показываем кнопку Отписаться только тем, у кого он есть в подписке-->
+              <% if logged_in? && current_user.courses.include?(course) %>
+                <!--                В ссылке нам надо передать ID курса, методом POST-->
+                <%= link_to "Отписаться", course_enroll_path(course_id: course.id), method: :delete, class: 'right' %>
+              <% end %>
+
+
             </div>
           </div>
         </div>
       <% end %>
-
     </div>
   </div>
 </div>

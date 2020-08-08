@@ -25,3 +25,11 @@ main {
   font-stretch: expanded;
   text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
 }
+
+.course_back { background-image: asset-url('course.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100px;
+
+}

@@ -1,0 +1,30 @@
+<div class="row ">
+  <div class="col m3">
+  </div>
+
+    <div class="col s12 m6">
+    <div class="card ">
+      <div class="card-image course_back ">
+         <p class="card-title black-text"><strong> <%= @course.name %></strong></p>
+         <span class="card-title black-text"><%= @course.short_name %></span>
+      </div>
+      <div class="card-content">
+        <p><%=@course.description %>></p>
+      </div>
+
+      <div class="card-action">
+        <!--            Показываем кнопку записаться только тем, кто зарегистрирован и еще не подписан на него-->
+        <% if logged_in? && !(current_user.courses.include?(@course)) %>
+          <!--                В ссылке нам надо передать ID курса, методом POST-->
+          <%= link_to "Записаться", course_enroll_path(course_id: @course.id), method: :post %>
+        <% end %>
+        <!--            Показываем кнопку Отписаться только тем, у кого он есть в подписке-->
+        <% if logged_in? && current_user.courses.include?(@course) %>
+          <!--                В ссылке нам надо передать ID курса, методом POST-->
+          <%= link_to "Отписаться", course_enroll_path(course_id: @course.id), method: :delete %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+            
