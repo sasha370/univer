@@ -9,7 +9,6 @@ class StudentCoursesController < ApplicationController
       StudentCourse.create(course: course_to_add, student: current_user)
       flash[:notice] =  " Вы успешно записались на курс: #{course_to_add.name}"
       redirect_to current_user
-
     else
       flash[:notice] =  " Что-то пошло не так с вашей записью"
     end
