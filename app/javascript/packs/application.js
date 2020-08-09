@@ -28,7 +28,7 @@ $(document).on('turbolinks:load', function() {
     $('.dropdown-trigger').dropdown();
     // Автоскрытие flash сообщений
     $('#fade-out-target').fadeOut(4000);
-    $('#textarea1').val('');
+    // $('#textarea1').val('');
     M.textareaAutoResize($('#textarea1'));
 });
 

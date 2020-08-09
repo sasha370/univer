@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   # чтобы эти методы были видны другим контроллерам
-  helper_method :current_user, :logged_in?, :is_admin?
+  helper_method :current_user, :logged_in?
 
   # Задаем для всех контроллеров ограничение: перед загрузкой проверить зарегистрирован ли пользователь
   before_action :require_user
@@ -13,10 +13,12 @@ class ApplicationController < ActionController::Base
   @current_user ||= Student.find(session[:student_id]) if session[:student_id]
   end
 
+
   def logged_in?
     # !! возвращает true/false если переменная существует
     !!current_user
   end
+
 
   def require_user
     if !logged_in?
@@ -24,9 +26,6 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
-
-
-
 
 
 end

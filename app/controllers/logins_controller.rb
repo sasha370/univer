@@ -10,7 +10,7 @@ class LoginsController < ApplicationController
   def create
     # В params есть еще один массив logins ( указан в form_for)/ который несет значение поля email
     # используя это значение мы находим нужную строчку в БД
-    student = Student.find_by(email: params[:logins][:email].downcase )
+    student = Student.find_by(email: params[:logins][:email].downcase)
 
     # Если в БД нашлась запись по email? то students будет true
     # но надо проверить и введеный пароль, это делает метод authe...te

@@ -2,30 +2,37 @@
   <div class="col m3">
   </div>
 
-    <div class="col s12 m6">
+  <div class="col s12 m6">
     <div class="card ">
       <div class="card-image course_back ">
         <div class="card-content">
-         <p class=" black-text"><%= @course.short_name %></p>
-         <p class=" black-text"><strong> <%= @course.name %></strong></p>
+          <p class=" black-text"><%= @course.short_name %></p>
+          <p class=" black-text"><strong> <%= @course.name %></strong></p>
         </div>
       </div>
 
       <div class="card-content">
-        <p><%=@course.description %>></p>
+        <p><%= @course.description %>></p>
       </div>
 
+
       <div class="card-action">
+
         <!--            Показываем кнопку записаться только тем, кто зарегистрирован и еще не подписан на него-->
         <% if logged_in? && !(current_user.courses.include?(@course)) %>
           <!--                В ссылке нам надо передать ID курса, методом POST-->
           <%= link_to "Записаться", course_enroll_path(course_id: @course.id), method: :post %>
-        <% end %>
-        <!--            Показываем кнопку Отписаться только тем, у кого он есть в подписке-->
-        <% if logged_in? && current_user.courses.include?(@course) %>
-          <!--                В ссылке нам надо передать ID курса, методом POST-->
+        <% else %>
+          <!--                В ссылке нам надо передать ID курса, методом Delete -->
           <%= link_to "Отписаться", course_enroll_path(course_id: @course.id), method: :delete %>
-      <% end %>
+        <% end %>
+
+        <!--            Показываем кнопку Редактировать/Удалить только тем, у кого он есть в подписке-->
+        <% if current_user.admin == true %>
+          <%= link_to "Редактировать", edit_course_path(@course.id) %>
+          <%= link_to "Удалить", course_path(@course.id), method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+
       </div>
     </div>
   </div>
