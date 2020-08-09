@@ -13,4 +13,11 @@ class Student < ApplicationRecord
   has_many :student_courses
   # Студент имеет множество отношения с Курсами, черезтаблицу Student_course
   has_many :courses, through: :student_courses
+
+  # Проверяем админ ли пользователь? Возвращает true /false
+  def is_admin?
+    admin
+  end
+
+
 end

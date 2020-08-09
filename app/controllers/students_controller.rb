@@ -72,7 +72,7 @@ class StudentsController < ApplicationController
       flash[:notice] = " Вы можете редактировать только свой профиль"
       redirect_to student_path(current_user)
     end
-
   end
+
 
 end

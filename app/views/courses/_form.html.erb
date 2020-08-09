@@ -11,20 +11,20 @@
             <div class="row">
               <div class="input-field col s12">
                 <%= f.text_field :short_name, placeholder: "Артикул", autofocus: true %>
-                <%= f.label :short_name %>
+                <%= f.label :short_name ,  class: "active" %>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
                 <%= f.text_field :name, placeholder: "Название", autofocus: true %>
-                <%= f.label :name %>
+                <%= f.label :name,  class: "active"  %>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
                 <%= f.text_area :description, placeholder: "Подробное описание курса", autofocus: true, id: "textarea1",  class: "materialize-textarea" %>
-                <%= f.label :description %>
+                <%= f.label :description ,  class: "active"  %>
               </div>
             </div>
 
