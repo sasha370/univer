@@ -17,22 +17,15 @@
 
 
       <div class="card-action">
-
-        <!--            Показываем кнопку записаться только тем, кто зарегистрирован и еще не подписан на него-->
         <% if logged_in? && !(current_user.courses.include?(@course)) %>
-          <!--                В ссылке нам надо передать ID курса, методом POST-->
           <%= link_to "Записаться", course_enroll_path(course_id: @course.id), method: :post %>
         <% else %>
-          <!--                В ссылке нам надо передать ID курса, методом Delete -->
           <%= link_to "Отписаться", course_enroll_path(course_id: @course.id), method: :delete %>
         <% end %>
-
-        <!--            Показываем кнопку Редактировать/Удалить только тем, у кого он есть в подписке-->
         <% if current_user.admin == true %>
           <%= link_to "Редактировать", edit_course_path(@course.id) %>
           <%= link_to "Удалить", course_path(@course.id), method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
-
       </div>
     </div>
   </div>
