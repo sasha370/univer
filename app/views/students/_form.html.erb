@@ -36,7 +36,6 @@
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <!--                Если запись новая, то показываем Регистрацию, если нет то "Созранить"-->
                 <%= f.button(@student.new_record? ? '<i class="material-icons right">arrow_forward </i> Зарегистрироваться'.html_safe : '<i class="material-icons right">create</i> Сохранить изменения '.html_safe, class: 'btn orange waves-effect waves-light right') %>
               </div>
             </div>
